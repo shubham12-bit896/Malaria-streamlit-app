@@ -9,7 +9,7 @@ import gdown
 # ------------------------ CONFIG ------------------------
 IMG_SIZE = 128
 MODEL_PATH = "model/malaria_model_fixed.keras"   # NEW
-MODEL_URL = "https://drive.google.com/file/d/1bt9bLaCa5VBetWEtuaTzrzaJDIqWmZH7/view?usp=drive_link"  # UPDATE THIS
+MODEL_URL = "https://drive.google.com/uc?id=1bt9bLaCa5VBetWEtuaTzrzaJDIqWmZH7"
 DISPLAY_SIZE = 250
 
 
@@ -20,7 +20,7 @@ def load_model():
 
     if not os.path.exists(MODEL_PATH):
         with st.spinner("📥 Downloading AI Model..."):
-            gdown.download(MODEL_URL, MODEL_PATH, quiet=False)
+            gdown.download(MODEL_URL, MODEL_PATH, quiet=False, fuzzy=True)
 
     return tf.keras.models.load_model(MODEL_PATH)  # new format loads cleanly
 
